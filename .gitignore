@@ -1,0 +1,89 @@
+# =========================================
+# MAVEN / SPRING BOOT
+# =========================================
+
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+
+# =========================================
+# ARCHIVOS CON VARIABLES / SECRETOS
+# =========================================
+
+.env
+.env.*
+*.env
+
+application-local.properties
+application-secret.properties
+application-secrets.properties
+
+*.pem
+*.key
+*.crt
+
+
+# =========================================
+# LOGS
+# =========================================
+
+*.log
+logs/
+
+
+# =========================================
+# INTELLIJ IDEA
+# =========================================
+
+.idea/
+*.iws
+*.iml
+*.ipr
+
+
+# =========================================
+# STS
+# =========================================
+
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+
+# =========================================
+# NETBEANS
+# =========================================
+
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+build/
+
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+# =========================================
+# VS CODE
+# =========================================
+
+.vscode/
+
+
+# =========================================
+# SISTEMA OPERATIVO
+# =========================================
+
+.DS_Store
+Thumbs.db
