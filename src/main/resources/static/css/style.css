@@ -925,25 +925,18 @@ textarea:focus-visible {
     }
 
     .week-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .project-grid,
     .work-grid {
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .links a:not(.adminlink) {
-        display: none;
+        grid-template-columns: 1fr 1fr;
     }
 
     .hero {
         padding: 75px 0;
     }
 }
-
 
 /* =========================================================
    RESPONSIVE - CELULAR

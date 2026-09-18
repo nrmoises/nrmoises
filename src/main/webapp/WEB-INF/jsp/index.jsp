@@ -14,11 +14,12 @@
     >
 
     <title>MOISÉS Portafolio</title>
-     <link
-            rel="icon"
-            type="image/png"
-            href="${pageContext.request.contextPath}/img/favicon.png"
-        >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="${pageContext.request.contextPath}/img/favicon.png"
+    >
 
     <link
         rel="stylesheet"
@@ -45,9 +46,7 @@
 
             gap: 9px;
 
-            padding:
-                7px
-                12px;
+            padding: 7px 12px;
 
             border:
                 1px solid rgba(255, 135, 54, .30);
@@ -173,7 +172,7 @@
             top: calc(100% + 12px);
             right: 0;
 
-            z-index: 999;
+            z-index: 9999;
 
             width: 225px;
 
@@ -308,10 +307,12 @@
 
 
         /* =========================================
-           OPCIONES
+           OPCIONES DEL MENÚ
         ========================================== */
 
         .user-dropdown-body {
+            display: block;
+
             padding: 8px;
         }
 
@@ -322,11 +323,11 @@
             display: flex;
             align-items: center;
 
+            box-sizing: border-box;
+
             gap: 10px;
 
-            padding:
-                11px
-                12px;
+            padding: 11px 12px;
 
             border-radius: 9px;
 
@@ -336,6 +337,9 @@
             font-weight: 700;
 
             text-decoration: none;
+
+            visibility: visible;
+            opacity: 1;
 
             transition:
                 background .2s ease,
@@ -354,6 +358,8 @@
         .user-dropdown-item svg {
             width: 16px;
             height: 16px;
+
+            flex-shrink: 0;
 
             fill: none;
             stroke: currentColor;
@@ -379,10 +385,67 @@
 
 
         /* =====================================================
-           RESPONSIVE
+           MENSAJE DE ÉXITO DEL FORMULARIO
+        ===================================================== */
+
+        .mensaje-exito {
+            margin-bottom: 18px;
+
+            padding: 14px 18px;
+
+            border:
+                1px solid rgba(255, 135, 54, .45);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 135, 54, .10);
+
+            color: #ff9b59;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .18);
+
+            animation:
+                mensajeEntrada
+                .35s ease;
+        }
+
+
+        @keyframes mensajeEntrada {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE DEL MENÚ DE USUARIO
         ===================================================== */
 
         @media (max-width: 760px) {
+
+            .user-menu {
+                position: relative;
+            }
+
 
             .user-menu-name {
                 display: none;
@@ -400,9 +463,44 @@
 
 
             .user-dropdown {
+                position: absolute;
+
+                top: calc(100% + 10px);
                 right: 0;
 
-                width: 210px;
+                width: 230px;
+
+                z-index: 99999;
+
+                overflow: hidden;
+            }
+
+
+            .user-dropdown-header {
+                display: flex;
+
+                padding: 16px;
+            }
+
+
+            .user-dropdown-body {
+                display: block;
+
+                padding: 8px;
+            }
+
+
+            .user-dropdown-item {
+                display: flex;
+
+                width: 100%;
+
+                min-height: 44px;
+
+                align-items: center;
+
+                visibility: visible;
+                opacity: 1;
             }
 
         }
@@ -424,8 +522,6 @@
     <div class="container navin">
 
 
-        <!-- LOGO -->
-
         <a
             class="logo"
             href="${pageContext.request.contextPath}/"
@@ -433,8 +529,6 @@
             MOISÉS<span>.</span>
         </a>
 
-
-        <!-- MENÚ -->
 
         <div class="links">
 
@@ -459,17 +553,10 @@
             </a>
 
 
-
-            <!-- =================================================
-                 SESIÓN
-            ================================================== -->
-
             <c:choose>
 
 
-                <%-- =============================================
-                     ADMINISTRADOR
-                ============================================== --%>
+                <%-- ADMINISTRADOR --%>
 
                 <c:when test="${not empty sessionScope.usuario
                                and sessionScope.usuario.rol == 'ADMIN'}">
@@ -484,18 +571,13 @@
                 </c:when>
 
 
-
-                <%-- =============================================
-                     USUARIO NORMAL
-                ============================================== --%>
+                <%-- USUARIO NORMAL --%>
 
                 <c:when test="${not empty sessionScope.usuario}">
 
 
                     <details class="user-menu">
 
-
-                        <!-- BOTÓN DEL PERFIL -->
 
                         <summary>
 
@@ -531,13 +613,8 @@
                         </summary>
 
 
-
-                        <!-- MENÚ DESPLEGABLE -->
-
                         <div class="user-dropdown">
 
-
-                            <!-- INFORMACIÓN -->
 
                             <div class="user-dropdown-header">
 
@@ -576,9 +653,6 @@
                             </div>
 
 
-
-                            <!-- OPCIONES -->
-
                             <div class="user-dropdown-body">
 
 
@@ -602,7 +676,6 @@
                                     Inicio
 
                                 </a>
-
 
 
                                 <a
@@ -630,6 +703,7 @@
 
                                 </a>
 
+
                             </div>
 
                         </div>
@@ -639,10 +713,7 @@
                 </c:when>
 
 
-
-                <%-- =============================================
-                     SIN SESIÓN
-                ============================================== --%>
+                <%-- SIN SESIÓN --%>
 
                 <c:otherwise>
 
@@ -655,14 +726,15 @@
 
                 </c:otherwise>
 
+
             </c:choose>
+
 
         </div>
 
     </div>
 
 </nav>
-
 
 
 <!-- =====================================================
@@ -673,8 +745,6 @@
 
     <div class="container hero-grid">
 
-
-        <!-- INFORMACIÓN PRINCIPAL -->
 
         <div>
 
@@ -733,11 +803,6 @@
         </div>
 
 
-
-        <!-- =================================================
-             FOTO DE PERFIL
-        ================================================== -->
-
         <div class="profile-orb">
 
             <c:choose>
@@ -769,7 +834,6 @@
 </header>
 
 
-
 <!-- =====================================================
      SOBRE MÍ
 ====================================================== -->
@@ -796,15 +860,8 @@
         </p>
 
 
-
-        <!-- =================================================
-             TECNOLOGÍAS
-        ================================================== -->
-
         <div class="tech-grid">
 
-
-            <!-- HTML -->
 
             <article class="tech-card">
 
@@ -822,24 +879,17 @@
 
                 </div>
 
-                <h3>
-                    HTML
-                </h3>
+                <h3>HTML</h3>
 
                 <p>
                     Construcción de estructuras web
                     semánticas y organizadas.
                 </p>
 
-                <span class="tech-arrow">
-                    →
-                </span>
+                <span class="tech-arrow">→</span>
 
             </article>
 
-
-
-            <!-- CSS -->
 
             <article class="tech-card">
 
@@ -857,24 +907,17 @@
 
                 </div>
 
-                <h3>
-                    CSS
-                </h3>
+                <h3>CSS</h3>
 
                 <p>
                     Creación de interfaces visuales,
                     diseños adaptables y efectos modernos.
                 </p>
 
-                <span class="tech-arrow">
-                    →
-                </span>
+                <span class="tech-arrow">→</span>
 
             </article>
 
-
-
-            <!-- JAVASCRIPT -->
 
             <article class="tech-card">
 
@@ -892,24 +935,17 @@
 
                 </div>
 
-                <h3>
-                    JavaScript
-                </h3>
+                <h3>JavaScript</h3>
 
                 <p>
                     Interactividad y comportamiento dinámico
                     para las aplicaciones web.
                 </p>
 
-                <span class="tech-arrow">
-                    →
-                </span>
+                <span class="tech-arrow">→</span>
 
             </article>
 
-
-
-            <!-- PHP -->
 
             <article class="tech-card">
 
@@ -927,9 +963,7 @@
 
                 </div>
 
-                <h3>
-                    PHP
-                </h3>
+                <h3>PHP</h3>
 
                 <p>
                     Desarrollo de aplicaciones web dinámicas
@@ -937,15 +971,10 @@
                     del servidor.
                 </p>
 
-                <span class="tech-arrow">
-                    →
-                </span>
+                <span class="tech-arrow">→</span>
 
             </article>
 
-
-
-            <!-- SPRING BOOT -->
 
             <article class="tech-card">
 
@@ -963,9 +992,7 @@
 
                 </div>
 
-                <h3>
-                    Spring Boot
-                </h3>
+                <h3>Spring Boot</h3>
 
                 <p>
                     Construcción de aplicaciones web
@@ -973,15 +1000,10 @@
                     ecosistema Spring.
                 </p>
 
-                <span class="tech-arrow">
-                    →
-                </span>
+                <span class="tech-arrow">→</span>
 
             </article>
 
-
-
-            <!-- MYSQL -->
 
             <article class="tech-card">
 
@@ -999,27 +1021,23 @@
 
                 </div>
 
-                <h3>
-                    MySQL
-                </h3>
+                <h3>MySQL</h3>
 
                 <p>
                     Organización, almacenamiento y gestión
                     de información mediante bases de datos.
                 </p>
 
-                <span class="tech-arrow">
-                    →
-                </span>
+                <span class="tech-arrow">→</span>
 
             </article>
+
 
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1048,9 +1066,6 @@
             documentos y evidencias de aprendizaje.
         </p>
 
-
-
-        <!-- LISTA DE SEMANAS -->
 
         <div class="week-grid">
 
@@ -1099,7 +1114,6 @@
 </section>
 
 
-
 <!-- =====================================================
      PROYECTOS
 ====================================================== -->
@@ -1121,9 +1135,6 @@
         </h2>
 
 
-
-        <!-- LISTA DE PROYECTOS -->
-
         <div class="project-grid">
 
             <c:forEach
@@ -1144,7 +1155,6 @@
                     </c:if>
 
 
-
                     <div class="project-body">
 
                         <h3>
@@ -1155,7 +1165,6 @@
                         <p>
                             ${p.descripcion}
                         </p>
-
 
 
                         <c:if test="${not empty p.tecnologias}">
@@ -1169,7 +1178,6 @@
                             </div>
 
                         </c:if>
-
 
 
                         <c:if test="${not empty p.url}">
@@ -1198,7 +1206,6 @@
 </section>
 
 
-
 <!-- =====================================================
      CONTACTO
 ====================================================== -->
@@ -1210,8 +1217,6 @@
 
     <div class="container contact-grid">
 
-
-        <!-- INFORMACIÓN -->
 
         <div>
 
@@ -1234,62 +1239,73 @@
         </div>
 
 
-
-        <!-- FORMULARIO -->
-
-        <form
-            class="form"
-            method="post"
-            action="${pageContext.request.contextPath}/contacto/enviar"
-        >
+        <div>
 
 
-            <input
-                type="text"
-                name="nombre"
-                placeholder="Tu nombre"
-                autocomplete="name"
-                required
+            <c:if test="${param.mensaje == 'ok'}">
+
+                <div class="mensaje-exito">
+                    ✓ Mensaje enviado correctamente
+                </div>
+
+            </c:if>
+
+
+            <form
+                class="form"
+                method="post"
+                action="${pageContext.request.contextPath}/contacto/enviar"
             >
 
 
-            <input
-                type="email"
-                name="correo"
-                placeholder="Tu correo"
-                autocomplete="email"
-                required
-            >
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Tu nombre"
+                    autocomplete="name"
+                    required
+                >
 
 
-            <input
-                type="text"
-                name="asunto"
-                placeholder="Asunto"
-                required
-            >
+                <input
+                    type="email"
+                    name="correo"
+                    placeholder="Tu correo"
+                    autocomplete="email"
+                    required
+                >
 
 
-            <textarea
-                name="mensaje"
-                placeholder="Escribe tu mensaje..."
-                required
-            ></textarea>
+                <input
+                    type="text"
+                    name="asunto"
+                    placeholder="Asunto"
+                    required
+                >
 
 
-            <button
-                type="submit"
-                class="btn primary"
-            >
-                ENVIAR MENSAJE →
-            </button>
+                <textarea
+                    name="mensaje"
+                    placeholder="Escribe tu mensaje..."
+                    required
+                ></textarea>
 
-        </form>
+
+                <button
+                    type="submit"
+                    class="btn primary"
+                >
+                    ENVIAR MENSAJE →
+                </button>
+
+
+            </form>
+
+        </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1307,6 +1323,45 @@
     </div>
 
 </footer>
+
+
+<!-- =====================================================
+     CERRAR MENÚ DE USUARIO AL TOCAR FUERA
+====================================================== -->
+
+<script>
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const menus =
+                document.querySelectorAll(
+                    ".user-menu"
+                );
+
+
+            menus.forEach(
+                function (menu) {
+
+                    if (
+                        menu.open &&
+                        !menu.contains(event.target)
+                    ) {
+
+                        menu.removeAttribute(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+</script>
 
 
 </body>
