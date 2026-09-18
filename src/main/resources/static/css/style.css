@@ -108,7 +108,6 @@ body::before {
 
 a {
     text-decoration: none;
-
     color: inherit;
 }
 
@@ -142,11 +141,8 @@ svg {
     background:
             rgba(24, 25, 27, .88);
 
-    backdrop-filter:
-            blur(20px);
-
-    -webkit-backdrop-filter:
-            blur(20px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     border-bottom:
             1px solid var(--line-soft);
@@ -180,17 +176,12 @@ svg {
 
 .logo span,
 .accent {
-    background:
-            var(--grad);
+    background: var(--grad);
 
-    -webkit-background-clip:
-            text;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-    background-clip:
-            text;
-
-    color:
-            transparent;
+    color: transparent;
 }
 
 .links {
@@ -204,8 +195,7 @@ svg {
 
     justify-content: flex-end;
 
-    color:
-            #d0cfcd;
+    color: #d0cfcd;
 
     font-size: 13px;
 
@@ -217,38 +207,30 @@ svg {
 
     white-space: nowrap;
 
-    transition:
-            .25s ease;
+    transition: .25s ease;
 }
 
 .links > a:hover {
-    color:
-            var(--orange);
+    color: var(--orange);
 }
 
 .adminlink {
-    padding:
-            11px 17px;
+    padding: 11px 17px;
 
     border:
             1px solid rgba(255, 135, 54, .5);
 
-    border-radius:
-            12px;
+    border-radius: 12px;
 
-    transition:
-            .25s ease;
+    transition: .25s ease;
 }
 
 .adminlink:hover {
-    color:
-            white !important;
+    color: white !important;
 
-    background:
-            var(--grad);
+    background: var(--grad);
 
-    border-color:
-            transparent;
+    border-color: transparent;
 
     box-shadow:
             0 10px 30px rgba(255, 126, 47, .20);
@@ -260,26 +242,19 @@ svg {
 ========================================================= */
 
 .hero {
-    position:
-            relative;
+    position: relative;
 
-    width:
-            100%;
+    width: 100%;
 
-    min-height:
-            78vh;
+    min-height: 78vh;
 
-    display:
-            grid;
+    display: grid;
 
-    align-items:
-            center;
+    align-items: center;
 
-    padding:
-            90px 0;
+    padding: 90px 0;
 
-    overflow:
-            hidden;
+    overflow: hidden;
 
     background:
             radial-gradient(
@@ -295,26 +270,17 @@ svg {
 }
 
 .hero::before {
-    content:
-            "";
+    content: "";
 
-    position:
-            absolute;
+    position: absolute;
 
-    width:
-            420px;
+    width: 420px;
+    height: 420px;
 
-    height:
-            420px;
+    right: -150px;
+    top: 40px;
 
-    right:
-            -150px;
-
-    top:
-            40px;
-
-    border-radius:
-            50%;
+    border-radius: 50%;
 
     background:
             radial-gradient(
@@ -323,31 +289,21 @@ svg {
                     transparent 67%
             );
 
-    pointer-events:
-            none;
+    pointer-events: none;
 }
 
 .hero::after {
-    content:
-            "";
+    content: "";
 
-    position:
-            absolute;
+    position: absolute;
 
-    width:
-            550px;
+    width: 550px;
+    height: 180px;
 
-    height:
-            180px;
+    left: -120px;
+    bottom: -90px;
 
-    left:
-            -120px;
-
-    bottom:
-            -90px;
-
-    transform:
-            rotate(-10deg);
+    transform: rotate(-10deg);
 
     background:
             linear-gradient(
@@ -356,125 +312,90 @@ svg {
                     transparent
             );
 
-    border-radius:
-            100%;
+    border-radius: 100%;
 
-    pointer-events:
-            none;
+    pointer-events: none;
 }
 
 .hero-grid {
-    position:
-            relative;
+    position: relative;
 
-    z-index:
-            2;
+    z-index: 2;
 
-    display:
-            grid;
+    display: grid;
 
     grid-template-columns:
         minmax(0, 1.3fr)
         minmax(0, .7fr);
 
-    gap:
-            70px;
+    gap: 70px;
 
-    align-items:
-            center;
+    align-items: center;
 }
 
 .hero-grid > * {
-    min-width:
-            0;
+    min-width: 0;
 }
 
 .eyebrow {
-    display:
-            inline-flex;
+    display: inline-flex;
 
-    align-items:
-            center;
+    align-items: center;
 
-    gap:
-            10px;
+    gap: 10px;
 
-    max-width:
-            100%;
+    max-width: 100%;
 
-    color:
-            var(--orange);
+    color: var(--orange);
 
-    font-size:
-            12px;
+    font-size: 12px;
 
-    font-weight:
-            900;
+    font-weight: 900;
 
-    letter-spacing:
-            3px;
+    letter-spacing: 3px;
 }
 
 .eyebrow::before {
-    content:
-            "";
+    content: "";
 
-    width:
-            45px;
+    width: 45px;
+    height: 2px;
 
-    height:
-            2px;
+    flex-shrink: 0;
 
-    flex-shrink:
-            0;
+    background: var(--grad);
 
-    background:
-            var(--grad);
-
-    border-radius:
-            10px;
+    border-radius: 10px;
 }
 
 .hero h1 {
-    max-width:
-            850px;
+    max-width: 850px;
 
-    margin:
-            22px 0;
+    margin: 22px 0;
 
-    font-size:
-            clamp(52px, 7.3vw, 91px);
+    font-size: clamp(52px, 7.3vw, 91px);
 
-    line-height:
-            .98;
+    line-height: .98;
 
-    letter-spacing:
-            -5px;
+    letter-spacing: -5px;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 .hero p {
-    max-width:
-            720px;
+    max-width: 720px;
 
-    color:
-            #bbb9b7;
+    color: #bbb9b7;
 
-    font-size:
-            17px;
+    font-size: 17px;
 
-    line-height:
-            1.85;
+    line-height: 1.85;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 .hero p strong {
-    color:
-            white;
+    color: white;
 }
 
 
@@ -483,52 +404,37 @@ svg {
 ========================================================= */
 
 .buttons {
-    display:
-            flex;
+    display: flex;
 
-    flex-wrap:
-            wrap;
+    flex-wrap: wrap;
 
-    gap:
-            13px;
+    gap: 13px;
 
-    margin-top:
-            32px;
+    margin-top: 32px;
 }
 
 .btn {
-    display:
-            inline-flex;
+    display: inline-flex;
 
-    justify-content:
-            center;
+    justify-content: center;
 
-    align-items:
-            center;
+    align-items: center;
 
-    padding:
-            14px 21px;
+    padding: 14px 21px;
 
-    border-radius:
-            12px;
+    border-radius: 12px;
 
-    font-weight:
-            800;
+    font-weight: 800;
 
-    font-size:
-            13px;
+    font-size: 13px;
 
-    border:
-            1px solid var(--line);
+    border: 1px solid var(--line);
 
-    color:
-            white;
+    color: white;
 
-    cursor:
-            pointer;
+    cursor: pointer;
 
-    text-align:
-            center;
+    text-align: center;
 
     transition:
             transform .25s ease,
@@ -538,22 +444,18 @@ svg {
 }
 
 .btn.primary {
-    background:
-            var(--grad);
+    background: var(--grad);
 
-    border-color:
-            transparent;
+    border-color: transparent;
 
     box-shadow:
             0 10px 30px rgba(255, 126, 47, .17);
 }
 
 .btn:hover {
-    transform:
-            translateY(-3px);
+    transform: translateY(-3px);
 
-    border-color:
-            var(--orange);
+    border-color: var(--orange);
 
     box-shadow:
             0 12px 30px rgba(0, 0, 0, .25);
@@ -570,20 +472,15 @@ svg {
 ========================================================= */
 
 .profile-orb {
-    position:
-            relative;
+    position: relative;
 
-    width:
-            100%;
+    width: 100%;
 
-    max-width:
-            100%;
+    max-width: 100%;
 
-    aspect-ratio:
-            1;
+    aspect-ratio: 1;
 
-    border-radius:
-            32px;
+    border-radius: 32px;
 
     background:
             radial-gradient(
@@ -604,42 +501,32 @@ svg {
             0 35px 80px rgba(0,0,0,.35),
             0 0 55px rgba(255,126,47,.08);
 
-    display:
-            grid;
+    display: grid;
 
-    place-items:
-            center;
+    place-items: center;
 
-    overflow:
-            hidden;
+    overflow: hidden;
 
-    transition:
-            .35s ease;
+    transition: .35s ease;
 }
 
 .profile-orb::before {
-    content:
-            "";
+    content: "";
 
-    position:
-            absolute;
+    position: absolute;
 
-    inset:
-            15px;
+    inset: 15px;
 
-    border-radius:
-            24px;
+    border-radius: 24px;
 
     border:
             1px solid rgba(255,255,255,.04);
 
-    pointer-events:
-            none;
+    pointer-events: none;
 }
 
 .profile-orb:hover {
-    transform:
-            translateY(-7px);
+    transform: translateY(-7px);
 
     border-color:
             rgba(255, 135, 54, .75);
@@ -650,46 +537,31 @@ svg {
 }
 
 .profile-orb img {
-    width:
-            90%;
+    width: 90%;
+    height: 90%;
 
-    height:
-            90%;
+    object-fit: contain;
 
-    object-fit:
-            contain;
+    object-position: center bottom;
 
-    object-position:
-            center bottom;
-
-    display:
-            block;
+    display: block;
 }
 
 .profile-orb strong {
-    position:
-            relative;
+    position: relative;
 
-    z-index:
-            2;
+    z-index: 2;
 
-    font-size:
-            105px;
+    font-size: 105px;
 
-    font-weight:
-            900;
+    font-weight: 900;
 
-    background:
-            var(--grad);
+    background: var(--grad);
 
-    -webkit-background-clip:
-            text;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-    background-clip:
-            text;
-
-    color:
-            transparent;
+    color: transparent;
 
     filter:
             drop-shadow(
@@ -703,14 +575,11 @@ svg {
 ========================================================= */
 
 .section {
-    position:
-            relative;
+    position: relative;
 
-    width:
-            100%;
+    width: 100%;
 
-    padding:
-            95px 0;
+    padding: 95px 0;
 }
 
 .section.alt {
@@ -726,48 +595,35 @@ svg {
 }
 
 .kicker {
-    color:
-            var(--orange);
+    color: var(--orange);
 
-    font-size:
-            11px;
+    font-size: 11px;
 
-    font-weight:
-            900;
+    font-weight: 900;
 
-    letter-spacing:
-            3px;
+    letter-spacing: 3px;
 }
 
 .section h2 {
-    max-width:
-            100%;
+    max-width: 100%;
 
-    font-size:
-            42px;
+    font-size: 42px;
 
-    letter-spacing:
-            -2px;
+    letter-spacing: -2px;
 
-    margin:
-            11px 0 13px;
+    margin: 11px 0 13px;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 .lead {
-    color:
-            var(--muted);
+    color: var(--muted);
 
-    line-height:
-            1.85;
+    line-height: 1.85;
 
-    max-width:
-            760px;
+    max-width: 760px;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 
@@ -776,22 +632,17 @@ svg {
 ========================================================= */
 
 .skills {
-    display:
-            flex;
+    display: flex;
 
-    flex-wrap:
-            wrap;
+    flex-wrap: wrap;
 
-    gap:
-            10px;
+    gap: 10px;
 
-    margin-top:
-            25px;
+    margin-top: 25px;
 }
 
 .skill {
-    padding:
-            9px 14px;
+    padding: 9px 14px;
 
     border:
             1px solid rgba(255, 135, 54, .23);
@@ -799,31 +650,24 @@ svg {
     background:
             rgba(255, 135, 54, .055);
 
-    border-radius:
-            999px;
+    border-radius: 999px;
 
-    color:
-            #d6d4d2;
+    color: #d6d4d2;
 
-    font-size:
-            12px;
+    font-size: 12px;
 
-    transition:
-            .25s ease;
+    transition: .25s ease;
 }
 
 .skill:hover {
-    color:
-            white;
+    color: white;
 
-    border-color:
-            var(--orange);
+    border-color: var(--orange);
 
     background:
             rgba(255, 135, 54, .10);
 
-    transform:
-            translateY(-2px);
+    transform: translateY(-2px);
 }
 
 
@@ -832,31 +676,24 @@ svg {
 ========================================================= */
 
 .week-grid {
-    display:
-            grid;
+    display: grid;
 
     grid-template-columns:
         repeat(4, minmax(0, 1fr));
 
-    gap:
-            17px;
+    gap: 17px;
 
-    margin-top:
-            38px;
+    margin-top: 38px;
 }
 
 .week {
-    position:
-            relative;
+    position: relative;
 
-    min-width:
-            0;
+    min-width: 0;
 
-    min-height:
-            220px;
+    min-height: 220px;
 
-    padding:
-            23px;
+    padding: 23px;
 
     background:
             linear-gradient(
@@ -868,11 +705,9 @@ svg {
     border:
             1px solid rgba(255,255,255,.08);
 
-    border-radius:
-            18px;
+    border-radius: 18px;
 
-    overflow:
-            hidden;
+    overflow: hidden;
 
     transition:
             transform .28s ease,
@@ -881,37 +716,26 @@ svg {
 }
 
 .week::after {
-    content:
-            "";
+    content: "";
 
-    position:
-            absolute;
+    position: absolute;
 
-    width:
-            90px;
+    width: 90px;
+    height: 90px;
 
-    height:
-            90px;
+    right: -45px;
+    bottom: -45px;
 
-    right:
-            -45px;
-
-    bottom:
-            -45px;
-
-    border-radius:
-            50%;
+    border-radius: 50%;
 
     background:
             rgba(255, 135, 54, .07);
 
-    transition:
-            .3s ease;
+    transition: .3s ease;
 }
 
 .week:hover {
-    transform:
-            translateY(-7px);
+    transform: translateY(-7px);
 
     border-color:
             rgba(255, 135, 54, .75);
@@ -922,81 +746,59 @@ svg {
 }
 
 .week:hover::after {
-    transform:
-            scale(1.5);
+    transform: scale(1.5);
 }
 
 .week .num {
-    position:
-            absolute;
+    position: absolute;
 
-    right:
-            15px;
+    right: 15px;
+    top: 2px;
 
-    top:
-            2px;
+    font-size: 62px;
 
-    font-size:
-            62px;
-
-    font-weight:
-            900;
+    font-weight: 900;
 
     color:
             rgba(255, 135, 54, .075);
 }
 
 .week small {
-    color:
-            var(--orange);
+    color: var(--orange);
 
-    font-weight:
-            800;
+    font-weight: 800;
 
-    letter-spacing:
-            2px;
+    letter-spacing: 2px;
 }
 
 .week h3 {
-    margin:
-            48px 0 8px;
+    margin: 48px 0 8px;
 
-    font-size:
-            19px;
+    font-size: 19px;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 .week p {
-    color:
-            var(--muted);
+    color: var(--muted);
 
-    font-size:
-            12px;
+    font-size: 12px;
 
-    line-height:
-            1.65;
+    line-height: 1.65;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 .go {
-    position:
-            relative;
+    position: relative;
 
-    z-index:
-            2;
+    z-index: 2;
 
-    color:
-            var(--orange-light);
+    color: var(--orange-light);
 
-    font-weight:
-            800;
+    font-weight: 800;
 
-    font-size:
-            12px;
+    font-size: 12px;
 }
 
 
@@ -1006,26 +808,21 @@ svg {
 
 .project-grid,
 .work-grid {
-    display:
-            grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap:
-            19px;
+    gap: 19px;
 
-    margin-top:
-            38px;
+    margin-top: 38px;
 }
 
 .project,
 .work {
-    min-width:
-            0;
+    min-width: 0;
 
-    max-width:
-            100%;
+    max-width: 100%;
 
     background:
             linear-gradient(
@@ -1037,11 +834,9 @@ svg {
     border:
             1px solid rgba(255,255,255,.08);
 
-    border-radius:
-            19px;
+    border-radius: 19px;
 
-    overflow:
-            hidden;
+    overflow: hidden;
 
     transition:
             transform .28s ease,
@@ -1051,8 +846,7 @@ svg {
 
 .project:hover,
 .work:hover {
-    transform:
-            translateY(-7px);
+    transform: translateY(-7px);
 
     border-color:
             rgba(255, 135, 54, .65);
@@ -1064,20 +858,15 @@ svg {
 
 .project img,
 .work img {
-    display:
-            block;
+    display: block;
 
-    width:
-            100%;
+    width: 100%;
 
-    max-width:
-            100%;
+    max-width: 100%;
 
-    height:
-            195px;
+    height: 195px;
 
-    object-fit:
-            cover;
+    object-fit: cover;
 
     transition:
             transform .45s ease;
@@ -1085,41 +874,32 @@ svg {
 
 .project:hover img,
 .work:hover img {
-    transform:
-            scale(1.035);
+    transform: scale(1.035);
 }
 
 .project-body,
 .work-body {
-    min-width:
-            0;
+    min-width: 0;
 
-    padding:
-            23px;
+    padding: 23px;
 }
 
 .project h3,
 .work h3 {
-    margin-top:
-            0;
+    margin-top: 0;
 
-    font-size:
-            20px;
+    font-size: 20px;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 .project p,
 .work p {
-    color:
-            var(--muted);
+    color: var(--muted);
 
-    line-height:
-            1.7;
+    line-height: 1.7;
 
-    overflow-wrap:
-            break-word;
+    overflow-wrap: break-word;
 }
 
 
@@ -1128,37 +908,29 @@ svg {
 ========================================================= */
 
 .contact-grid {
-    display:
-            grid;
+    display: grid;
 
     grid-template-columns:
         minmax(0, .8fr)
         minmax(0, 1.2fr);
 
-    gap:
-            55px;
+    gap: 55px;
 }
 
 .contact-grid > * {
-    min-width:
-            0;
+    min-width: 0;
 }
 
 .form {
-    width:
-            100%;
+    width: 100%;
 
-    min-width:
-            0;
+    min-width: 0;
 
-    display:
-            grid;
+    display: grid;
 
-    gap:
-            14px;
+    gap: 14px;
 
-    padding:
-            25px;
+    padding: 25px;
 
     background:
             linear-gradient(
@@ -1170,8 +942,7 @@ svg {
     border:
             1px solid rgba(255,255,255,.08);
 
-    border-radius:
-            20px;
+    border-radius: 20px;
 
     box-shadow:
             0 25px 60px rgba(0,0,0,.20);
@@ -1179,35 +950,26 @@ svg {
 
 .form input,
 .form textarea {
-    width:
-            100%;
+    width: 100%;
 
-    max-width:
-            100%;
+    max-width: 100%;
 
-    min-width:
-            0;
+    min-width: 0;
 
-    background:
-            #202123;
+    background: #202123;
 
     border:
             1px solid #46474a;
 
-    color:
-            white;
+    color: white;
 
-    padding:
-            15px 16px;
+    padding: 15px 16px;
 
-    border-radius:
-            11px;
+    border-radius: 11px;
 
-    outline:
-            none;
+    outline: none;
 
-    font-family:
-            inherit;
+    font-family: inherit;
 
     transition:
             border-color .25s ease,
@@ -1217,14 +979,12 @@ svg {
 
 .form input::placeholder,
 .form textarea::placeholder {
-    color:
-            #898987;
+    color: #898987;
 }
 
 .form input:focus,
 .form textarea:focus {
-    background:
-            #242527;
+    background: #242527;
 
     border-color:
             var(--orange);
@@ -1234,16 +994,13 @@ svg {
 }
 
 .form textarea {
-    min-height:
-            145px;
+    min-height: 145px;
 
-    resize:
-            vertical;
+    resize: vertical;
 }
 
 .form button {
-    border:
-            0;
+    border: 0;
 }
 
 
@@ -1252,23 +1009,18 @@ svg {
 ========================================================= */
 
 .footer {
-    width:
-            100%;
+    width: 100%;
 
-    padding:
-            32px 0;
+    padding: 32px 0;
 
-    background:
-            #151618;
+    background: #151618;
 
     border-top:
             1px solid rgba(255,255,255,.07);
 
-    color:
-            #888886;
+    color: #888886;
 
-    font-size:
-            12px;
+    font-size: 12px;
 }
 
 
@@ -1280,8 +1032,7 @@ svg {
     background:
             rgba(255, 135, 54, .85);
 
-    color:
-            white;
+    color: white;
 }
 
 
@@ -1290,26 +1041,21 @@ svg {
 ========================================================= */
 
 ::-webkit-scrollbar {
-    width:
-            10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background:
-            #17181a;
+    background: #17181a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background:
-            #414244;
+    background: #414244;
 
-    border-radius:
-            20px;
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background:
-            var(--orange);
+    background: var(--orange);
 }
 
 
@@ -1324,8 +1070,7 @@ textarea:focus-visible {
     outline:
             2px solid var(--orange);
 
-    outline-offset:
-            3px;
+    outline-offset: 3px;
 }
 
 
@@ -1334,43 +1079,33 @@ textarea:focus-visible {
 ========================================================= */
 
 .tech-grid {
-    display:
-            grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap:
-            16px;
+    gap: 16px;
 
-    margin-top:
-            38px;
+    margin-top: 38px;
 }
 
 .tech-card {
-    position:
-            relative;
+    position: relative;
 
-    min-width:
-            0;
+    min-width: 0;
 
-    min-height:
-            270px;
+    min-height: 270px;
 
-    padding:
-            30px;
+    padding: 30px;
 
-    overflow:
-            hidden;
+    overflow: hidden;
 
-    background:
-            var(--surface);
+    background: var(--surface);
 
     border:
             1px solid var(--line);
 
-    border-radius:
-            16px;
+    border-radius: 16px;
 
     transition:
             transform .3s ease,
@@ -1379,8 +1114,7 @@ textarea:focus-visible {
 }
 
 .tech-card:hover {
-    transform:
-            translateY(-6px);
+    transform: translateY(-6px);
 
     border-color:
             rgba(255, 135, 54, .55);
@@ -1391,34 +1125,24 @@ textarea:focus-visible {
 }
 
 .tech-card-top {
-    display:
-            flex;
+    display: flex;
 
-    align-items:
-            flex-start;
+    align-items: flex-start;
 
-    justify-content:
-            space-between;
+    justify-content: space-between;
 
-    min-height:
-            75px;
+    min-height: 75px;
 
-    margin-bottom:
-            20px;
+    margin-bottom: 20px;
 }
 
 .tech-image {
-    display:
-            block;
+    display: block;
 
-    width:
-            68px;
+    width: 68px;
+    height: 68px;
 
-    height:
-            68px;
-
-    object-fit:
-            contain;
+    object-fit: contain;
 
     transition:
             transform .35s ease,
@@ -1432,74 +1156,52 @@ textarea:focus-visible {
 }
 
 .tech-number {
-    color:
-            var(--muted);
+    color: var(--muted);
 
-    font-family:
-            Consolas, monospace;
+    font-family: Consolas, monospace;
 
-    font-size:
-            9px;
+    font-size: 9px;
 
-    font-weight:
-            600;
+    font-weight: 600;
 
-    letter-spacing:
-            1px;
+    letter-spacing: 1px;
 
-    opacity:
-            .65;
+    opacity: .65;
 }
 
 .tech-card h3 {
-    margin:
-            0 0 13px;
+    margin: 0 0 13px;
 
-    color:
-            var(--text);
+    color: var(--text);
 
-    font-size:
-            20px;
+    font-size: 20px;
 
-    font-weight:
-            800;
+    font-weight: 800;
 
-    letter-spacing:
-            -.4px;
+    letter-spacing: -.4px;
 }
 
 .tech-card p {
-    max-width:
-            310px;
+    max-width: 310px;
 
-    margin:
-            0;
+    margin: 0;
 
-    color:
-            var(--muted);
+    color: var(--muted);
 
-    font-size:
-            13px;
+    font-size: 13px;
 
-    line-height:
-            1.75;
+    line-height: 1.75;
 }
 
 .tech-arrow {
-    position:
-            absolute;
+    position: absolute;
 
-    right:
-            25px;
+    right: 25px;
+    bottom: 23px;
 
-    bottom:
-            23px;
+    color: var(--muted);
 
-    color:
-            var(--muted);
-
-    font-size:
-            18px;
+    font-size: 18px;
 
     transition:
             transform .3s ease,
@@ -1507,45 +1209,32 @@ textarea:focus-visible {
 }
 
 .tech-card:hover .tech-arrow {
-    color:
-            var(--orange);
+    color: var(--orange);
 
-    transform:
-            translateX(5px);
+    transform: translateX(5px);
 }
 
 .tech-card::after {
-    content:
-            "";
+    content: "";
 
-    position:
-            absolute;
+    position: absolute;
 
-    left:
-            50%;
+    left: 50%;
+    bottom: 0;
 
-    bottom:
-            0;
+    width: 0;
+    height: 2px;
 
-    width:
-            0;
+    background: var(--orange);
 
-    height:
-            2px;
-
-    background:
-            var(--orange);
-
-    transform:
-            translateX(-50%);
+    transform: translateX(-50%);
 
     transition:
             width .35s ease;
 }
 
 .tech-card:hover::after {
-    width:
-            70%;
+    width: 70%;
 }
 
 
@@ -1556,25 +1245,26 @@ textarea:focus-visible {
 @media (max-width: 950px) {
 
     /*
-       El menú principal no cabe completo en tablet/celular.
-       Ocultamos SOLO los enlaces directos.
-       Esto NO oculta Inicio/Cerrar sesión del usuario.
+       IMPORTANTE:
+       Oculta solamente los enlaces principales:
+       Sobre mí, Semanas, Proyectos y Contacto.
+
+       No oculta Inicio/Cerrar sesión
+       del menú desplegable del usuario.
     */
+
     .links > a:not(.adminlink) {
-        display:
-                none;
+        display: none;
     }
 
 
     .navin {
-        gap:
-                14px;
+        gap: 14px;
     }
 
 
     .links {
-        gap:
-                10px;
+        gap: 10px;
     }
 
 
@@ -1586,17 +1276,14 @@ textarea:focus-visible {
 
 
     .hero-grid {
-        gap:
-                45px;
+        gap: 45px;
     }
 
 
     .profile-orb {
-        width:
-                min(380px, 100%);
+        width: min(380px, 100%);
 
-        margin-inline:
-                auto;
+        margin-inline: auto;
     }
 
 
@@ -1620,10 +1307,8 @@ textarea:focus-visible {
 
 
     .hero {
-        padding:
-                75px 0;
+        padding: 75px 0;
     }
-
 }
 
 
@@ -1635,103 +1320,120 @@ textarea:focus-visible {
 
     html,
     body {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        overflow-x:
-                hidden;
+        overflow-x: hidden;
     }
 
+
+    /*
+       CONTENIDO GENERAL
+
+       Mantenemos 14px aproximadamente
+       a cada lado del contenido.
+    */
 
     .container {
-        width:
-                calc(100% - 28px);
+        width: calc(100% - 28px);
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        margin-inline:
-                auto;
+        margin-inline: auto;
     }
 
 
-    /* =========================
-       NAVEGACIÓN
-    ========================= */
+    /* =====================================================
+       NAVEGACIÓN MÓVIL
+    ===================================================== */
 
     .nav {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
     }
 
 
+    /*
+       CORRECCIÓN:
+       MOISÉS y ADMIN / usuario ya no quedan
+       pegados a los bordes del celular.
+    */
+
     .navin {
-        width:
-                100%;
+        width: 100%;
 
-        height:
-                68px;
+        height: 68px;
 
-        gap:
-                10px;
+        display: flex;
 
-        min-width:
-                0;
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        min-width: 0;
+
+        padding-left: 14px;
+        padding-right: 14px;
     }
 
 
     .logo {
-        font-size:
-                20px;
+        flex-shrink: 0;
 
-        letter-spacing:
-                -1px;
+        font-size: 20px;
+
+        letter-spacing: -1px;
+
+        white-space: nowrap;
     }
 
 
     .links {
-        flex-shrink:
-                0;
+        display: flex;
 
-        gap:
-                7px;
+        align-items: center;
+
+        justify-content: flex-end;
+
+        flex-shrink: 0;
+
+        gap: 7px;
     }
 
 
+    /*
+       SOLO enlaces principales.
+
+       El menú interno del usuario
+       permanece visible.
+    */
+
     .links > a:not(.adminlink) {
-        display:
-                none;
+        display: none;
     }
 
 
     .adminlink {
-        padding:
-                9px 12px;
+        padding: 9px 12px;
 
-        font-size:
-                10px;
+        font-size: 10px;
 
-        white-space:
-                nowrap;
+        white-space: nowrap;
     }
 
 
-    /* =========================
+    /* =====================================================
        HERO
-    ========================= */
+    ===================================================== */
 
     .hero {
-        min-height:
-                auto;
+        min-height: auto;
 
-        padding:
-                58px 0;
+        padding: 58px 0;
     }
 
 
@@ -1739,139 +1441,106 @@ textarea:focus-visible {
         grid-template-columns:
             minmax(0, 1fr);
 
-        gap:
-                38px;
+        gap: 38px;
     }
 
 
     .eyebrow {
-        display:
-                flex;
+        display: flex;
 
-        flex-wrap:
-                wrap;
+        flex-wrap: wrap;
 
-        font-size:
-                9px;
+        font-size: 9px;
 
-        line-height:
-                1.5;
+        line-height: 1.5;
 
-        letter-spacing:
-                1.7px;
+        letter-spacing: 1.7px;
     }
 
 
     .eyebrow::before {
-        width:
-                26px;
+        width: 26px;
     }
 
 
     .hero h1 {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        margin:
-                17px 0;
+        margin: 17px 0;
 
         font-size:
                 clamp(39px, 12vw, 56px);
 
-        line-height:
-                1.02;
+        line-height: 1.02;
 
-        letter-spacing:
-                -2.5px;
+        letter-spacing: -2.5px;
 
-        overflow-wrap:
-                break-word;
+        overflow-wrap: break-word;
 
-        word-break:
-                normal;
+        word-break: normal;
     }
 
 
     .hero p {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        font-size:
-                15px;
+        font-size: 15px;
 
-        line-height:
-                1.75;
+        line-height: 1.75;
     }
 
 
-    /* =========================
+    /* =====================================================
        BOTONES
-    ========================= */
+    ===================================================== */
 
     .buttons {
-        width:
-                100%;
+        width: 100%;
 
-        flex-direction:
-                column;
+        flex-direction: column;
 
-        align-items:
-                stretch;
+        align-items: stretch;
 
-        gap:
-                11px;
+        gap: 11px;
 
-        margin-top:
-                27px;
+        margin-top: 27px;
     }
 
 
     .buttons .btn {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        min-height:
-                50px;
+        min-height: 50px;
 
-        padding:
-                13px 16px;
+        padding: 13px 16px;
     }
 
 
-    /* =========================
+    /* =====================================================
        PERFIL
-    ========================= */
+    ===================================================== */
 
     .profile-orb {
-        width:
-                min(340px, 100%);
+        width: min(340px, 100%);
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        margin-inline:
-                auto;
+        margin-inline: auto;
 
-        border-radius:
-                25px;
+        border-radius: 25px;
     }
 
 
     .profile-orb::before {
-        inset:
-                12px;
+        inset: 12px;
 
-        border-radius:
-                19px;
+        border-radius: 19px;
     }
 
 
@@ -1881,25 +1550,21 @@ textarea:focus-visible {
     }
 
 
-    /* =========================
+    /* =====================================================
        SECCIONES
-    ========================= */
+    ===================================================== */
 
     .section {
-        padding:
-                65px 0;
+        padding: 65px 0;
     }
 
 
     .kicker {
-        font-size:
-                9px;
+        font-size: 9px;
 
-        line-height:
-                1.5;
+        line-height: 1.5;
 
-        letter-spacing:
-                2px;
+        letter-spacing: 2px;
     }
 
 
@@ -1907,233 +1572,187 @@ textarea:focus-visible {
         font-size:
                 clamp(30px, 9vw, 36px);
 
-        line-height:
-                1.08;
+        line-height: 1.08;
 
-        letter-spacing:
-                -1.3px;
+        letter-spacing: -1.3px;
     }
 
 
     .lead {
-        width:
-                100%;
+        width: 100%;
 
-        font-size:
-                14px;
+        font-size: 14px;
 
-        line-height:
-                1.75;
+        line-height: 1.75;
     }
 
 
-    /* =========================
+    /* =====================================================
        SEMANAS
-    ========================= */
+    ===================================================== */
 
     .week-grid {
         grid-template-columns:
             minmax(0, 1fr);
 
-        gap:
-                15px;
+        gap: 15px;
 
-        margin-top:
-                30px;
+        margin-top: 30px;
     }
 
 
     .week {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        min-height:
-                205px;
+        min-height: 205px;
 
-        padding:
-                20px;
+        padding: 20px;
     }
 
 
     .week .num {
-        font-size:
-                55px;
+        font-size: 55px;
     }
 
 
     .week h3 {
-        margin-top:
-                44px;
+        margin-top: 44px;
 
-        font-size:
-                18px;
+        font-size: 18px;
     }
 
 
-    /* =========================
+    /* =====================================================
        PROYECTOS
-    ========================= */
+    ===================================================== */
 
     .project-grid,
     .work-grid {
         grid-template-columns:
             minmax(0, 1fr);
 
-        gap:
-                16px;
+        gap: 16px;
 
-        margin-top:
-                30px;
+        margin-top: 30px;
     }
 
 
     .project,
     .work {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
     }
 
 
     .project img,
     .work img {
-        height:
-                auto;
+        height: auto;
 
-        min-height:
-                180px;
+        min-height: 180px;
 
-        max-height:
-                240px;
+        max-height: 240px;
 
-        object-fit:
-                cover;
+        object-fit: cover;
     }
 
 
     .project-body,
     .work-body {
-        padding:
-                20px;
+        padding: 20px;
     }
 
 
-    /* =========================
+    /* =====================================================
        TECNOLOGÍAS
-    ========================= */
+    ===================================================== */
 
     .tech-grid {
         grid-template-columns:
             minmax(0, 1fr);
 
-        gap:
-                15px;
+        gap: 15px;
 
-        margin-top:
-                30px;
+        margin-top: 30px;
     }
 
 
     .tech-card {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        min-height:
-                245px;
+        min-height: 245px;
 
-        padding:
-                24px;
+        padding: 24px;
     }
 
 
     .tech-image {
-        width:
-                60px;
+        width: 60px;
 
-        height:
-                60px;
+        height: 60px;
     }
 
 
-    /* =========================
+    /* =====================================================
        CONTACTO
-    ========================= */
+    ===================================================== */
 
     .contact-grid {
         grid-template-columns:
             minmax(0, 1fr);
 
-        gap:
-                32px;
+        gap: 32px;
     }
 
 
     .form {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        padding:
-                18px;
+        padding: 18px;
 
-        border-radius:
-                16px;
+        border-radius: 16px;
     }
 
 
     .form input,
     .form textarea {
-        width:
-                100%;
+        width: 100%;
 
-        max-width:
-                100%;
+        max-width: 100%;
 
-        font-size:
-                16px;
+        font-size: 16px;
     }
 
 
     .form textarea {
-        min-height:
-                135px;
+        min-height: 135px;
     }
 
 
     .form .btn {
-        width:
-                100%;
+        width: 100%;
     }
 
 
-    /* =========================
+    /* =====================================================
        FOOTER
-    ========================= */
+    ===================================================== */
 
     .footer {
-        padding:
-                27px 0;
+        padding: 27px 0;
 
-        text-align:
-                center;
+        text-align: center;
 
-        font-size:
-                11px;
+        font-size: 11px;
 
-        line-height:
-                1.7;
+        line-height: 1.7;
     }
-
 }
 
 
@@ -2144,29 +1763,35 @@ textarea:focus-visible {
 @media (max-width: 380px) {
 
     .container {
-        width:
-                calc(100% - 22px);
+        width: calc(100% - 22px);
+    }
+
+
+    /*
+       Conservamos espacio suficiente
+       en ambos extremos del navbar.
+    */
+
+    .navin {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
 
     .logo {
-        font-size:
-                18px;
+        font-size: 18px;
     }
 
 
     .adminlink {
-        padding:
-                8px 10px;
+        padding: 8px 10px;
 
-        font-size:
-                9px;
+        font-size: 9px;
     }
 
 
     .hero {
-        padding:
-                50px 0;
+        padding: 50px 0;
     }
 
 
@@ -2174,26 +1799,22 @@ textarea:focus-visible {
         font-size:
                 clamp(35px, 12vw, 46px);
 
-        letter-spacing:
-                -2px;
+        letter-spacing: -2px;
     }
 
 
     .hero p {
-        font-size:
-                14px;
+        font-size: 14px;
     }
 
 
     .section {
-        padding:
-                58px 0;
+        padding: 58px 0;
     }
 
 
     .section h2 {
-        font-size:
-                30px;
+        font-size: 30px;
     }
 
 
@@ -2201,10 +1822,8 @@ textarea:focus-visible {
     .week,
     .project-body,
     .work-body {
-        padding:
-                18px;
+        padding: 18px;
     }
-
 }
 
 
@@ -2215,8 +1834,7 @@ textarea:focus-visible {
 @media (prefers-reduced-motion: reduce) {
 
     html {
-        scroll-behavior:
-                auto;
+        scroll-behavior: auto;
     }
 
 
@@ -2229,5 +1847,4 @@ textarea:focus-visible {
         animation:
                 none !important;
     }
-
 }
