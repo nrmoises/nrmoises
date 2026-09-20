@@ -11,6 +11,7 @@ import com.portafolio.moises.repository.TrabajoRepository;
 
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
+
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -31,12 +32,17 @@ import java.nio.charset.StandardCharsets;
 
 import java.util.Optional;
 
+
 @Controller
 public class HomeController {
 
+
  private final SemanaRepository semanaRepository;
+
  private final TrabajoRepository trabajoRepository;
+
  private final ProyectoRepository proyectoRepository;
+
  private final PerfilRepository perfilRepository;
 
 
@@ -62,6 +68,7 @@ public class HomeController {
 
   this.perfilRepository =
           perfilRepository;
+
  }
 
 
@@ -74,44 +81,179 @@ public class HomeController {
          Model model
  ) {
 
-  // Obtener información del perfil
-  Perfil perfil = perfilRepository
-          .findAll()
-          .stream()
-          .findFirst()
-          .orElse(new Perfil());
+
+  long inicio =
+          System.currentTimeMillis();
 
 
-  // Enviar perfil a la vista
+  System.out.println(
+          "========================================="
+  );
+
+  System.out.println(
+          "===== INICIO HOME ====="
+  );
+
+  System.out.println(
+          "========================================="
+  );
+
+
+  // =====================================
+  // PERFIL
+  // =====================================
+
+  long tiempoPerfil =
+          System.currentTimeMillis();
+
+
+  Perfil perfil =
+          perfilRepository
+                  .findAll()
+                  .stream()
+                  .findFirst()
+                  .orElse(
+                          new Perfil()
+                  );
+
+
+  long resultadoPerfil =
+          System.currentTimeMillis()
+                  - tiempoPerfil;
+
+
+  System.out.println(
+          "PERFIL: "
+                  + resultadoPerfil
+                  + " ms"
+  );
+
+
   model.addAttribute(
           "perfil",
           perfil
   );
 
 
-  // Obtener semanas ordenadas
+  // =====================================
+  // SEMANAS
+  // =====================================
+
+  long tiempoSemanas =
+          System.currentTimeMillis();
+
+
   model.addAttribute(
           "semanas",
-          semanaRepository.findAllByOrderByNumeroAsc()
+          semanaRepository
+                  .findAllByOrderByNumeroAsc()
   );
 
 
-  // Obtener proyectos
+  long resultadoSemanas =
+          System.currentTimeMillis()
+                  - tiempoSemanas;
+
+
+  System.out.println(
+          "SEMANAS: "
+                  + resultadoSemanas
+                  + " ms"
+  );
+
+
+  // =====================================
+  // PROYECTOS
+  // =====================================
+
+  long tiempoProyectos =
+          System.currentTimeMillis();
+
+
   model.addAttribute(
           "proyectos",
-          proyectoRepository.findAll()
+          proyectoRepository
+                  .findAll()
   );
 
 
-  // Obtener cantidad total de trabajos
+  long resultadoProyectos =
+          System.currentTimeMillis()
+                  - tiempoProyectos;
+
+
+  System.out.println(
+          "PROYECTOS: "
+                  + resultadoProyectos
+                  + " ms"
+  );
+
+
+  // =====================================
+  // TOTAL DE TRABAJOS
+  // =====================================
+
+  long tiempoTrabajos =
+          System.currentTimeMillis();
+
+
   model.addAttribute(
           "totalTrabajos",
-          trabajoRepository.count()
+          trabajoRepository
+                  .count()
   );
 
 
-  // Mostrar página principal
+  long resultadoTrabajos =
+          System.currentTimeMillis()
+                  - tiempoTrabajos;
+
+
+  System.out.println(
+          "TOTAL TRABAJOS: "
+                  + resultadoTrabajos
+                  + " ms"
+  );
+
+
+  // =====================================
+  // TIEMPO TOTAL DE HOME
+  // =====================================
+
+  long tiempoTotal =
+          System.currentTimeMillis()
+                  - inicio;
+
+
+  System.out.println(
+          "-----------------------------------------"
+  );
+
+  System.out.println(
+          "HOME COMPLETO: "
+                  + tiempoTotal
+                  + " ms"
+  );
+
+  System.out.println(
+          "========================================="
+  );
+
+  System.out.println(
+          "===== FIN HOME ====="
+  );
+
+  System.out.println(
+          "========================================="
+  );
+
+
+  // =====================================
+  // MOSTRAR PÁGINA PRINCIPAL
+  // =====================================
+
   return "index";
+
  }
 
 
@@ -125,27 +267,41 @@ public class HomeController {
          Model model
  ) {
 
-  // Buscar semana por ID
+
+  // =====================================
+  // BUSCAR SEMANA POR ID
+  // =====================================
+
   Optional<Semana> semanaEncontrada =
-          semanaRepository.findById(id);
+          semanaRepository
+                  .findById(id);
 
 
-  // Si la semana no existe
+  // =====================================
+  // SI LA SEMANA NO EXISTE
+  // =====================================
+
   if (semanaEncontrada.isEmpty()) {
 
    return "redirect:/#semanas";
+
   }
 
 
-  // Enviar información de la semana
+  // =====================================
+  // ENVIAR SEMANA A LA VISTA
+  // =====================================
+
   model.addAttribute(
           "semana",
           semanaEncontrada.get()
   );
 
 
-  // Obtener trabajos pertenecientes
-  // a la semana
+  // =====================================
+  // OBTENER TRABAJOS DE LA SEMANA
+  // =====================================
+
   model.addAttribute(
           "trabajos",
           trabajoRepository
@@ -153,8 +309,12 @@ public class HomeController {
   );
 
 
-  // Mostrar detalle de la semana
+  // =====================================
+  // MOSTRAR DETALLE
+  // =====================================
+
   return "semana";
+
  }
 
 
@@ -168,12 +328,14 @@ public class HomeController {
          @PathVariable Long id
  ) throws Exception {
 
+
   // =====================================
   // BUSCAR TRABAJO
   // =====================================
 
   Optional<Trabajo> trabajoEncontrado =
-          trabajoRepository.findById(id);
+          trabajoRepository
+                  .findById(id);
 
 
   if (trabajoEncontrado.isEmpty()) {
@@ -181,6 +343,7 @@ public class HomeController {
    return ResponseEntity
            .notFound()
            .build();
+
   }
 
 
@@ -192,12 +355,16 @@ public class HomeController {
   // COMPROBAR QUE TENGA ARCHIVO
   // =====================================
 
-  if (trabajo.getArchivo() == null
-          || trabajo.getArchivo().isBlank()) {
+  if (
+          trabajo.getArchivo() == null
+                  ||
+                  trabajo.getArchivo().isBlank()
+  ) {
 
    return ResponseEntity
            .notFound()
            .build();
+
   }
 
 
@@ -206,7 +373,8 @@ public class HomeController {
   // =====================================
 
   HttpClient cliente =
-          HttpClient.newHttpClient();
+          HttpClient
+                  .newHttpClient();
 
 
   HttpRequest solicitud =
@@ -224,7 +392,9 @@ public class HomeController {
   HttpResponse<byte[]> respuesta =
           cliente.send(
                   solicitud,
-                  HttpResponse.BodyHandlers.ofByteArray()
+                  HttpResponse
+                          .BodyHandlers
+                          .ofByteArray()
           );
 
 
@@ -232,61 +402,84 @@ public class HomeController {
   // VERIFICAR RESPUESTA DE CLOUDINARY
   // =====================================
 
-  if (respuesta.statusCode() < 200
-          || respuesta.statusCode() >= 300) {
+  if (
+          respuesta.statusCode() < 200
+                  ||
+                  respuesta.statusCode() >= 300
+  ) {
 
    return ResponseEntity
-           .status(respuesta.statusCode())
+           .status(
+                   respuesta.statusCode()
+           )
            .build();
+
   }
 
 
   // =====================================
-  // NOMBRE DE DESCARGA
+  // NOMBRE DEL ARCHIVO
   // =====================================
 
   String nombreArchivo =
-          trabajo.getNombreArchivo();
+          trabajo
+                  .getNombreArchivo();
 
 
-  // Para trabajos antiguos que todavía
-  // no tienen nombre guardado
-  if (nombreArchivo == null
-          || nombreArchivo.isBlank()) {
+  if (
+          nombreArchivo == null
+                  ||
+                  nombreArchivo.isBlank()
+  ) {
 
    nombreArchivo =
-           "trabajo-" + trabajo.getId();
+           "trabajo-"
+                   + trabajo.getId();
+
   }
 
 
   // =====================================
-  // TIPO DE ARCHIVO
+  // TIPO DEL ARCHIVO
   // =====================================
 
   MediaType tipoContenido =
-          MediaType.APPLICATION_OCTET_STREAM;
+          MediaType
+                  .APPLICATION_OCTET_STREAM;
 
 
-  if (trabajo.getTipoArchivo() != null
-          && !trabajo.getTipoArchivo().isBlank()) {
+  if (
+          trabajo.getTipoArchivo() != null
+                  &&
+                  !trabajo.getTipoArchivo().isBlank()
+  ) {
 
    try {
 
+
     tipoContenido =
-            MediaType.parseMediaType(
-                    trabajo.getTipoArchivo()
-            );
+            MediaType
+                    .parseMediaType(
+                            trabajo
+                                    .getTipoArchivo()
+                    );
+
 
    } catch (Exception ignored) {
 
+
     tipoContenido =
-            MediaType.APPLICATION_OCTET_STREAM;
+            MediaType
+                    .APPLICATION_OCTET_STREAM;
+
+
    }
+
   }
 
 
   // =====================================
-  // PREPARAR ARCHIVO PARA DESCARGA
+  // PREPARAR ARCHIVO
   // =====================================
 
   ByteArrayResource recurso =
@@ -324,5 +517,7 @@ public class HomeController {
           .body(
                   recurso
           );
+
  }
+
 }
