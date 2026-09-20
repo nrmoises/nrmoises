@@ -806,7 +806,6 @@ body {
     font-size: 12px;
 }
 
-
 /* =========================================================
    PROYECTOS / TRABAJOS
 ========================================================= */
@@ -821,6 +820,9 @@ body {
     gap: 19px;
 
     margin-top: 38px;
+
+    /* Todas las tarjetas de una fila se estiran igual */
+    align-items: stretch;
 }
 
 .project,
@@ -849,6 +851,21 @@ body {
             box-shadow .28s ease;
 }
 
+
+/* =========================================================
+   TARJETAS DE TRABAJOS
+   MISMO TAMAÑO Y CONTENIDO ORDENADO
+========================================================= */
+
+.work {
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+}
+
+
 .project:hover,
 .work:hover {
     transform: translateY(-7px);
@@ -860,6 +877,7 @@ body {
             0 22px 55px rgba(0,0,0,.32),
             0 0 25px rgba(255,126,47,.07);
 }
+
 
 .project img,
 .work img {
@@ -873,14 +891,18 @@ body {
 
     object-fit: cover;
 
+    flex-shrink: 0;
+
     transition:
             transform .45s ease;
 }
+
 
 .project:hover img,
 .work:hover img {
     transform: scale(1.035);
 }
+
 
 .project-body,
 .work-body {
@@ -888,6 +910,20 @@ body {
 
     padding: 23px;
 }
+
+
+/* =========================================================
+   CUERPO DE LA TARJETA DE TRABAJO
+========================================================= */
+
+.work-body {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
 
 .project h3,
 .work h3 {
@@ -898,6 +934,7 @@ body {
     overflow-wrap: break-word;
 }
 
+
 .project p,
 .work p {
     color: var(--muted);
@@ -907,6 +944,32 @@ body {
     overflow-wrap: break-word;
 }
 
+
+/* =========================================================
+   DESCRIPCIÓN DE LOS TRABAJOS
+   EVITA QUE UNA DESCRIPCIÓN LARGA DEFORME LA TARJETA
+========================================================= */
+
+.work p {
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 4;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BOTONES SIEMPRE ABAJO
+========================================================= */
+
+.work .actions {
+    margin-top: auto;
+
+    padding-top: 18px;
+}
 
 /* =========================================================
    CONTACTO

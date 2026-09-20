@@ -124,7 +124,7 @@ public class TrabajoController {
   model.addAttribute(
           "trabajos",
           trabajoRepository
-                  .findBySemanaIdOrderByIdDesc(id)
+                  .findBySemanaIdOrderByIdAsc(id)
   );
 
 

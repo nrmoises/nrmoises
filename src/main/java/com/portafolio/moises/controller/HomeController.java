@@ -305,7 +305,7 @@ public class HomeController {
   model.addAttribute(
           "trabajos",
           trabajoRepository
-                  .findBySemanaIdOrderByIdDesc(id)
+                  .findBySemanaIdOrderByIdAsc(id)
   );
 
 

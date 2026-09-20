@@ -11,9 +11,10 @@ public interface TrabajoRepository
 
     // =========================================
     // OBTENER TRABAJOS DE UNA SEMANA
+    // DEL MÁS ANTIGUO AL MÁS NUEVO
     // =========================================
 
-    List<Trabajo> findBySemanaIdOrderByIdDesc(
+    List<Trabajo> findBySemanaIdOrderByIdAsc(
             Long semanaId
     );
 
