@@ -130,13 +130,15 @@ svg {
 ========================================================= */
 
 .nav {
-    position: sticky;
+    position: fixed !important;
 
-    top: 0;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
 
-    z-index: 1000;
+    z-index: 999999 !important;
 
-    width: 100%;
+    width: 100% !important;
 
     background:
             rgba(24, 25, 27, .88);
@@ -146,6 +148,10 @@ svg {
 
     border-bottom:
             1px solid var(--line-soft);
+}
+
+body {
+    padding-top: 76px;
 }
 
 .navin {
@@ -235,7 +241,6 @@ svg {
     box-shadow:
             0 10px 30px rgba(255, 126, 47, .20);
 }
-
 
 /* =========================================================
    HERO / PORTADA
