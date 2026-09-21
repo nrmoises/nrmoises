@@ -351,9 +351,10 @@ body {
 ======================================== */
 
 .content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 34px 30px;
-
-    max-width: 1250px;
 }
 
 
@@ -2749,4 +2750,104 @@ tr:hover td {
         animation: none;
     }
 
+}
+
+/* =========================================================
+   RESPONSIVE ESCRITORIO DEFINITIVO
+   LAPTOP + PC + MONITORES GRANDES
+========================================================= */
+
+@media (min-width: 951px) {
+
+    .content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding:
+                clamp(34px, 2.4vw, 52px)
+                clamp(30px, 3vw, 60px);
+    }
+
+    .dashboard-pro {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .dash-header {
+        width: 100%;
+        margin-bottom: clamp(32px, 2vw, 42px);
+    }
+
+    .dash-header > div:first-child {
+        max-width: clamp(720px, 55vw, 1050px);
+    }
+
+    .dash-header h1 {
+        font-size: clamp(54px, 3.2vw, 66px);
+    }
+
+    .dash-header p {
+        max-width: 900px;
+        font-size: clamp(14px, 0.85vw, 17px);
+    }
+
+    .dash-stats {
+        width: 100%;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(15px, 1.2vw, 24px);
+    }
+
+    .dash-stat {
+        width: 100%;
+        min-height: clamp(150px, 9vw, 185px);
+        padding: clamp(22px, 1.5vw, 30px);
+    }
+
+    .dash-stat-icon {
+        width: clamp(40px, 2.5vw, 48px);
+        height: clamp(40px, 2.5vw, 48px);
+    }
+
+    .dash-stat > small {
+        font-size: clamp(9px, 0.58vw, 11px);
+    }
+
+    .dash-stat > strong {
+        font-size: clamp(34px, 2.2vw, 44px);
+    }
+
+    .dash-bottom {
+        width: 100%;
+        grid-template-columns:
+                minmax(0, 1.7fr)
+                minmax(350px, 0.95fr);
+        gap: clamp(20px, 1.3vw, 26px);
+    }
+
+    .dash-box {
+        width: 100%;
+        padding: clamp(28px, 1.8vw, 36px);
+    }
+
+    .dash-box-title h2 {
+        font-size: clamp(18px, 1.1vw, 22px);
+    }
+
+    .dash-resumen-text p {
+        font-size: clamp(13px, 0.78vw, 15px);
+    }
+
+    .dash-tool {
+        min-height: clamp(112px, 7vw, 135px);
+        padding: clamp(15px, 1vw, 20px);
+    }
+
+    .dash-tool strong {
+        font-size: clamp(11px, 0.68vw, 13px);
+    }
+
+    .dash-tool > span {
+        font-size: clamp(9px, 0.58vw, 11px);
+    }
 }
