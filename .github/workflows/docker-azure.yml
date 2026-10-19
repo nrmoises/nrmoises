@@ -2,6 +2,9 @@ name: Docker para Azure
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - azure-deploy
 
 permissions:
   contents: read
